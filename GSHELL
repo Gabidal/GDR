@@ -1,0 +1,90 @@
+%include "Utils/GDRS.asm"
+%include "Utils/GDRIO.asm"
+%include "Utils/GDRDB.asm"
+
+GIO:
+    %macro G.gout 1
+        push %1
+        call gout
+    %endmacro
+    
+    %macro G.gin 1
+        push %1
+        call gin
+    %endmacro
+    
+    %macro G.getLenght 1
+        push %1
+        call getLenght
+    %endmacro
+
+    %macro G.nout 1
+        mov eax, %1
+        add eax, 48b
+        push eax
+        call nout
+    %endmacro
+
+    %macro G.createFile 1
+        push %1
+        call createFile
+    %endmacro
+
+    %macro G.writeFile 2
+        push %1
+        push %2
+        call writeFile
+    %endmacro
+    
+    %macro G.closeFile 0
+        call closeFile
+    %endmacro
+        
+    %macro G.openFile 1
+        push %1
+        call openFile
+    %endmacro
+            
+    %macro G.readFile 2
+        push %1
+        push %2
+        call readFile
+    %endmacro
+
+GDRS:
+    %macro G.copy 3
+        push %1
+        push %2
+        push %3
+        call copy
+    %endmacro
+
+    %macro G.put 4
+        push %1
+        push %2
+        push %3
+        push %4
+        call put
+    %endmacro
+
+    %macro G.toChar 2
+        push %1
+        push %2
+        call toChar
+    %endmacro
+
+    %macro G.getByte 3
+        push %1
+        push %2
+        push %3
+        call getByte
+    %endmacro
+
+GDRDB:
+    %macro G.Finish 0
+        call Finish
+    %endmacro
+
+    %macro G.Tell.Process 0
+        call Tell.Process
+    %endmacro
